@@ -18,3 +18,19 @@ h3 {
 button {
   box-shadow: 2px 2px 2px black;
 }
+
+label {
+  letter-spacing: 0.1rem;
+  color: chocolate;
+}
+
+p {
+  color: chocolate;
+  font-weight: normal;
+  letter-spacing: 0.1rem;
+  font-size: 1rem;
+}
+
+select.form-control {
+  width: 200px;
+}
