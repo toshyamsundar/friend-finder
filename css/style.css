@@ -1,0 +1,20 @@
+.bgimg {
+  /* background: url("../images/black-and-white-blur.jpg"); */
+  background: url("../images/backlit-beach.jpg");
+  background-position: center center;
+  background-size: cover;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+h1,
+h3 {
+  text-shadow: 1px 1px 1px black;
+  letter-spacing: 0.1rem;
+}
+
+button {
+  box-shadow: 2px 2px 2px black;
+}
