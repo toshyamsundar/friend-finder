@@ -5,9 +5,19 @@ let PORT = process.env.PORT || 3000;
 
 let app = express();
 
+// app.use(express.static(__dirname + "/app/public"));
+app.use("/css", express.static(__dirname + "/app/public/css"));
+app.use("/js", express.static(__dirname + "/app/public/js"));
+app.use("/images", express.static(__dirname + "/app/public/images"));
+
 app.get("/", (request, response) => {
-  // let responseHTMLFile = path.join(__dirname);
-  response.sendFile(__dirname);
+  let responseHTMLFile = path.join(__dirname, "/app/public/", "home.html");
+  response.sendFile(responseHTMLFile);
+});
+
+app.get("/survey", (request, response) => {
+  let responseHTMLFile = path.join(__dirname, "/app/public/", "survey.html");
+  response.sendFile(responseHTMLFile);
 });
 
 app.listen(PORT, () => {
