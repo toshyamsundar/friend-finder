@@ -15,10 +15,7 @@ app.get("/", (request, response) => {
   response.sendFile(responseHTMLFile);
 });
 
-app.get("/survey", (request, response) => {
-  let responseHTMLFile = path.join(__dirname, "/app/public/", "survey.html");
-  response.sendFile(responseHTMLFile);
-});
+require("./app/routing/apiRoutes")(app);
 
 app.listen(PORT, () => {
   console.log(`Express server listening on PORT ${PORT}`);
