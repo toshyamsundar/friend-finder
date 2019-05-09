@@ -5,7 +5,6 @@ let PORT = process.env.PORT || 3000;
 
 let app = express();
 
-// app.use(express.static(__dirname + "/app/public"));
 app.use("/css", express.static(__dirname + "/app/public/css"));
 app.use("/js", express.static(__dirname + "/app/public/js"));
 app.use("/images", express.static(__dirname + "/app/public/images"));
@@ -15,6 +14,7 @@ app.get("/", (request, response) => {
   response.sendFile(responseHTMLFile);
 });
 
+require("./app/routing/htmlRoutes")(app);
 require("./app/routing/apiRoutes")(app);
 
 app.listen(PORT, () => {
