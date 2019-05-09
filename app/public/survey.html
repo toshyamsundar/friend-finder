@@ -37,7 +37,7 @@
       <h3 class="text-primary text-center">Survey Questions</h3>
       <p class="text-center">(1 - Strongly Disagree, 5 - Strong Agree)</p>
       <hr />
-      <form>
+      <form method="POST">
         <div class="form-group">
           <label for="name">Name</label>
           <input type="text" class="form-control" id="name" />
@@ -151,7 +151,7 @@
         </select>
         <br />
         <hr />
-        <button type="button" class="btn btn-primary mb-4 mt-2" id="btn-add">Submit</button>
+        <a class="btn btn-primary mb-4 mt-2" type="submit" id="btn-submit" href="/api/friends">Submit</a>
       </form>
     </div>
   </body>

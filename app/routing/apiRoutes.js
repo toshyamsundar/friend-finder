@@ -6,8 +6,9 @@ module.exports = app => {
     response.json(friends);
   });
 
-  //   app.post("/api/friends", (request, response) => {
-  //     let responseHTMLFile = path.join(__dirname, "/../public/", "home.html");
-  //     response.sendFile(responseHTMLFile);
-  //   });
+  app.post("/api/friends", (request, response) => {
+    console.log("Inside Post");
+    friends.push(request.body);
+    response.status(200).json(friends);
+  });
 };
