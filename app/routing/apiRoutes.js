@@ -9,6 +9,7 @@ module.exports = app => {
   app.post("/api/friends", (request, response) => {
     console.log("Inside Post");
     friends.push(request.body);
-    response.status(200).json(friends);
+    console.log(friends);
+    response.status(200).end();
   });
 };
