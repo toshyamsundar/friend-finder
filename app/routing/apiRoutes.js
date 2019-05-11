@@ -7,9 +7,22 @@ module.exports = app => {
   });
 
   app.post("/api/friends", (request, response) => {
-    console.log("Inside Post");
-    friends.push(request.body);
-    console.log(friends);
-    response.status(200).end();
+    let friendToCheck = {
+      name: request.body.name,
+      photo: request.body.photo,
+      scores: request.body.scores.map(Number)
+    };
+
+    totalOfScoreDifferences = [];
+    friends.forEach(friend => {
+      totalOfScoreDifferences.push(
+        friend.scores
+          .map((score, i) => score - friendToCheck.scores[i])
+          .map(score => Math.abs(score))
+          .reduce((a, b) => a + b, 0)
+      );
+    });
+    let friendToReturn = friends[totalOfScoreDifferences.indexOf(Math.min(...totalOfScoreDifferences))];
+    response.status(200).json(friendToReturn);
   });
 };

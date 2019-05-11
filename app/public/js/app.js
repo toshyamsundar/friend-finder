@@ -13,7 +13,7 @@ $(document).ready(() => {
         scores.push($(".survey-question").val());
       });
 
-    friendInfo.scores = scores;
+    friendInfo.scores = scores.map(Number);
 
     $.post("/api/friends", friendInfo)
       .then(() => {
