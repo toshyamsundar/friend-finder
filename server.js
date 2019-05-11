@@ -17,8 +17,8 @@ app.get("/", (request, response) => {
   response.sendFile(responseHTMLFile);
 });
 
-require("./app/routing/htmlRoutes")(app);
 require("./app/routing/apiRoutes")(app);
+require("./app/routing/htmlRoutes")(app);
 
 app.listen(PORT, () => {
   console.log(`Express server listening on PORT ${PORT}`);

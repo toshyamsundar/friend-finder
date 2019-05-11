@@ -6,8 +6,8 @@ module.exports = app => {
     response.sendFile(responseHTMLFile);
   });
 
-  //   app.get("*", (request, response) => {
-  //     let responseHTMLFile = path.join(__dirname, "/../public/", "home.html");
-  //     response.sendFile(responseHTMLFile);
-  //   });
+  app.get("*", (request, response) => {
+    let responseHTMLFile = path.join(__dirname, "/../public/", "home.html");
+    response.sendFile(responseHTMLFile);
+  });
 };
