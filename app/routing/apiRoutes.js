@@ -13,7 +13,7 @@ module.exports = app => {
       scores: request.body.scores.map(Number)
     };
 
-    totalOfScoreDifferences = [];
+    let totalOfScoreDifferences = [];
     friends.forEach(friend => {
       totalOfScoreDifferences.push(
         friend.scores
@@ -22,7 +22,7 @@ module.exports = app => {
           .reduce((a, b) => a + b, 0)
       );
     });
-    let friendToReturn = friends[totalOfScoreDifferences.indexOf(Math.min(...totalOfScoreDifferences))];
-    response.status(200).json(friendToReturn);
+    let compatibleFriend = friends[totalOfScoreDifferences.indexOf(Math.min(...totalOfScoreDifferences))];
+    response.status(200).json(compatibleFriend);
   });
 };

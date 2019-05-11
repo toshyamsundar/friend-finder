@@ -1,5 +1,7 @@
 $(document).ready(() => {
   $(document).on("click", "#btn-submit", event => {
+    event.preventDefault();
+
     let friendInfo = {
       name: $("#name").val(),
       photo: $("#photo-url").val()
@@ -16,8 +18,10 @@ $(document).ready(() => {
     friendInfo.scores = scores.map(Number);
 
     $.post("/api/friends", friendInfo)
-      .then(() => {
-        console.log("Successfully added");
+      .then(results => {
+        $("#modal-friend").modal("show");
+        $("#friend-name").text(results.name);
+        $("#friend-photo").attr("src", results.photo);
       })
       .catch(err => {
         console.log(err);
